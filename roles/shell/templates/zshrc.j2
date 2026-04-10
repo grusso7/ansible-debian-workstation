@@ -1,4 +1,4 @@
-# .zshrc generato da Ansible
+# .zshrc generato da Ansible per {{ desktop_user }}
 
 # Abilita i colori per ls
 alias ls='ls --color=auto'
@@ -7,7 +7,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # Configurazione di base della history
-HISTFILE=~/.zsh_history
+HISTFILE={{ user_home }}/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory

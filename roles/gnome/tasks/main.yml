@@ -34,8 +34,16 @@
   become_user: "{{ desktop_user }}"
 
 # Task opzionale per ptyxis come descritto in `istruzioni.md` se si usa un'estensione come nautilus-open-any-terminal
+- name: Check Nautilus open any terminal current value
+  ansible.builtin.command: gsettings get com.github.stunkymonkey.nautilus-open-any-terminal terminal
+  register: current_terminal
+  become: true
+  become_user: "{{ desktop_user }}"
+  ignore_errors: true
+  changed_when: false
+
 - name: Attempt to set Nautilus open any terminal (if schema is available)
   ansible.builtin.command: gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal ptyxis
   become: true
   become_user: "{{ desktop_user }}"
-  ignore_errors: true
+  when: current_terminal.rc == 0 and current_terminal.stdout != "'ptyxis'"

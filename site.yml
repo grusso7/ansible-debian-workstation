@@ -2,9 +2,6 @@
   hosts: local
   become: true
 
-  vars_files:
-    - group_vars/all.yml
-
   pre_tasks:
     - name: Update apt cache
       ansible.builtin.apt:
