@@ -1,0 +1,9 @@
+---
+- name: Install developer tools
+  ansible.builtin.apt:
+    name:
+      - git
+      - lazygit
+      - ripgrep
+      - fd-find
+    state: present

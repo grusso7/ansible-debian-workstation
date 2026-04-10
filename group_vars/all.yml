@@ -1,0 +1,3 @@
+---
+desktop_user: grusso
+user_home: "/home/{{ desktop_user }}"

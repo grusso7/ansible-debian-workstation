@@ -1,0 +1,6 @@
+---
+- name: Install cursor theme
+  ansible.builtin.apt:
+    name:
+      - bibata-cursor-theme
+    state: present
